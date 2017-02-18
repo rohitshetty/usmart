@@ -4,22 +4,13 @@
 
 
 
-#define MAXDEBOUNCEONEPRESS 15
-#define MAXDEBOUNCEONENAVI 30
-
-// pin connections
-//This is for the device
-#define UP 7
-#define DOWN 6
-#define RIGHT 5
-#define LEFT 4
-#define OKWAKE 2
-#define CANCEL 3
 
 
 volatile int debouncingCounters[6]={0,0,0,0,0,0};
 volatile uint8_t flag=0;
 volatile uint8_t input_status=0;
+
+
 void timer2_init(){
 	TCCR2 =(1<<CS22)|(1<<CS21);
 	TIMSK = (1<<TOIE2);
@@ -137,6 +128,5 @@ void debounce(void){
 
 
 ISR(TIMER2_OVF_vect){
-
 debounce();
 }

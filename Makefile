@@ -1,5 +1,7 @@
 MCU = atmega16
-OBJECTS =main.out screen.out spi.out pwm.out input.out i2c.out rtc.out serial.out
+
+OBJECTS = main.out peripheral_drivers/spi.out peripheral_drivers/pwm.out peripheral_drivers/i2c.out peripheral_drivers/serial.out device_drivers/screen.out  device_drivers/input.out device_drivers/rtc.out
+
 all: upload.hex
 
 upload.hex: upload.out
@@ -15,4 +17,4 @@ flash: upload.hex
 	sudo avrdude -c usbasp -p m16 -P USBasp -U flash:w:upload.hex
 
 clean:
-	rm -f *.out *.hex
+	rm -f *.out *.hex device_drivers/*.out peripheral_drivers/*.out

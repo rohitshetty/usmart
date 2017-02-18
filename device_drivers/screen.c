@@ -2,9 +2,9 @@
 #include<avr/io.h>
 #include<avr/pgmspace.h>
 #include<util/delay.h>
-#include "spi.h"
+#include "../peripheral_drivers/spi.h"
 #include "screen.h"
-#include "pwm.h"
+#include "../peripheral_drivers/pwm.h"
 
 // The 7-bit ASCII character set...
 // This charset font array is taken from Carlos Rodrigues <cefrodrigues@gmail.com> library for arduino.

@@ -5,8 +5,8 @@
 #include<avr/interrupt.h>
 #include<avr/sleep.h>
 #include <string.h>
-#include "screen.h"
-#include "input.h"
+#include "device_drivers/screen.h"
+#include "device_drivers/input.h"
 
 #define APPSIZE 3
 
