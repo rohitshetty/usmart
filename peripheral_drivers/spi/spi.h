@@ -1,7 +1,7 @@
 #ifndef SPI_H
 #define SPI_H
 
-#include "../config.h"
+#include "../../config.h"
 #include<avr/io.h>
 #include<avr/interrupt.h>
 
