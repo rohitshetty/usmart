@@ -2,7 +2,7 @@
 #define I2C_H
 
 
-#include "../config.h"
+#include "../../config.h"
 #include<avr/io.h>
 #include<util/delay.h>
 #include<util/twi.h>

@@ -1,13 +1,13 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
-#include "../config.h"
+#include "../../config.h"
 #include<avr/io.h>
 #include<avr/pgmspace.h>
 #include<util/delay.h>
-#include "../peripheral_drivers/spi.h"
+#include "../../peripheral_drivers/spi/spi.h"
 #include "screen.h"
-#include "../peripheral_drivers/pwm.h"
+#include "../../peripheral_drivers/pwm/pwm.h"
 
 
 #define SCREEN_DDR DDRB

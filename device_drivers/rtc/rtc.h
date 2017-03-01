@@ -1,9 +1,9 @@
 #ifndef RTC_H
 #define RTC_H
 
-#include "../config.h"
+#include "../../config.h"
 #include<avr/io.h>
-#include "../peripheral_drivers/i2c.h"
+#include "../../peripheral_drivers/i2c/i2c.h"
 
 void RTCinit(void);
 void RTCSet(char *);

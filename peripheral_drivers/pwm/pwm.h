@@ -1,7 +1,7 @@
 #ifndef PWM_H
 #define PWM_H
 
-#include "../config.h"
+#include "../../config.h"
 #include<avr/io.h>
 
 void pwm_init(void);

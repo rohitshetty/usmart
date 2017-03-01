@@ -2,7 +2,7 @@
 #define SERIAL_H
 
 
-#include "../config.h"
+#include "../../config.h"
 #include<avr/io.h>
 
 void serial_init(void);
