@@ -1,13 +1,8 @@
-#include<avr/io.h>
 #include "serial.h"
-
-#define F_CPU 12000000UL
-#define BAUD 115200
-#define BAUDRATE ((F_CPU)/(BAUD*16UL)-1)
 
 struct stack {
 	char stack_array[20];
-	char pointer;
+	uint8_t pointer;
 };
 
 

@@ -1,4 +1,10 @@
 #ifndef SPI_H
+#define SPI_H
+
+#include "../config.h"
+#include<avr/io.h>
+#include<avr/interrupt.h>
+
 #define SPI_PORT_DDR DDRB
 #define SPI_PORT_O PORTB
 #define SPI_PORT_I PINB

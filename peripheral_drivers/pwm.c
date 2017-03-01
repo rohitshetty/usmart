@@ -1,5 +1,3 @@
-#define F_CPU 12000000UL
-#include<avr/io.h>
 #include "pwm.h"
 
 void pwm_init(void){

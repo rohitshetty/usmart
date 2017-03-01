@@ -1,10 +1,4 @@
-#define F_CPU 12000000UL
-#include<avr/io.h>
-#include<avr/pgmspace.h>
-#include<util/delay.h>
-#include "../peripheral_drivers/spi.h"
 #include "screen.h"
-#include "../peripheral_drivers/pwm.h"
 
 // The 7-bit ASCII character set...
 // This charset font array is taken from Carlos Rodrigues <cefrodrigues@gmail.com> library for arduino.
@@ -106,6 +100,7 @@ const PROGMEM unsigned char charset[96][5] = {
   { 0x10, 0x08, 0x08, 0x10, 0x08 },  // 7e ~
   { 0x00, 0x00, 0x00, 0x00, 0x00 }   // 7f
 };
+
 //end of Carlos Rodrigues <cefrodrigues@gmail.com> font set array
 
 
@@ -188,6 +183,7 @@ void screen_clear(void){
 
 }
 
+
 void screen_init(void){
 	//initalize the screen
 	pwm_init();                    //set pwm
@@ -207,4 +203,25 @@ void screen_init(void){
 	screen_send_command(DISPLAY_CONTROL|INVERSE);
 	_delay_ms(1000);
 	screen_clear();
+}
+
+void print_int_to_ascii(uint16_t num){
+
+	struct stack {
+		char stack_array[20];
+		uint8_t pointer;
+	};
+
+	struct stack LIFO;
+	uint16_t rem;
+	LIFO.pointer=0;
+	for(LIFO.pointer=0;num!=0;LIFO.pointer++){
+		rem = num%10;
+		num = num/10;
+		LIFO.stack_array[LIFO.pointer] = rem+48;
+	}
+	for(LIFO.pointer--;LIFO.pointer>=0;LIFO.pointer--){
+	 	render_char(LIFO.stack_array[LIFO.pointer]);
+	}
+	return;
 }

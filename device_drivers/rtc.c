@@ -1,4 +1,4 @@
-#include<avr/io.h>
+#include "rtc.h"
 
 void RTCinit(){
     TWIInit();
