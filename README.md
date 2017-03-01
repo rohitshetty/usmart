@@ -1,5 +1,7 @@
 uSmart is a quasi smart watch running on Atmega16 and esp8266.
-This project contains base firmware for pseudo-kernel and infrastructure to build your own usmart!.
+This project contains base firmware for pseudo-kernel and infrastructure to build your own apps on usmart!.
+uSmart gives you an infrastructure where you can write your own apps on this hardware.
+(like multimeter on watch, your own small game, a calculator etc, also has wireless capability)
 uSmart contains a monochrome nokia 5110 screen, user interface consisting of small joystick and press buttons, RTC DS1307, LM35 and ESP8266 for wireless communication
 
 The file is structured into
