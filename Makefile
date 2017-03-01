@@ -29,4 +29,4 @@ flash: upload.hex
 	@sudo avrdude -c usbasp -p m16 -P USBasp -U flash:w:upload.hex
 
 clean:
-	@rm -f $(OBJECTS)
+	@rm -f $(OBJECTS) *.out *.hex
