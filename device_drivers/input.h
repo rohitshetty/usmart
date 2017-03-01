@@ -1,4 +1,7 @@
 #ifndef INPUT_H
+#define INPUT_H
+
+#include "../config.h"
 
 
 //This is for the apps useage

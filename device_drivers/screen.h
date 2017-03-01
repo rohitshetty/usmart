@@ -1,4 +1,14 @@
 #ifndef SCREEN_H
+#define SCREEN_H
+
+#include "../config.h"
+#include<avr/io.h>
+#include<avr/pgmspace.h>
+#include<util/delay.h>
+#include "../peripheral_drivers/spi.h"
+#include "screen.h"
+#include "../peripheral_drivers/pwm.h"
+
 
 #define SCREEN_DDR DDRB
 #define SCREEN_PORT PORTB
@@ -20,7 +30,7 @@
 #define GOTOXBANK_BASE 0x80
 #define GOTOYBANK_BASE 0x40
 
-//display modes 
+//display modes
 #define BLANK 0x00
 #define ALL_ON 0x1
 #define NORMAL 0x4
@@ -44,5 +54,8 @@ void screen_clear(void);
 void set_cursor_bank(uint8_t,uint8_t);
 void screen_invert(void);
 void screen_normal(void);
-#endif
+void print_int_to_ascii(uint16_t);
 
+
+
+#endif
