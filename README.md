@@ -5,6 +5,7 @@ uSmart gives you an infrastructure where you can write your own apps on this har
 uSmart contains a monochrome nokia 5110 screen, user interface consisting of small joystick and press buttons, RTC DS1307, LM35 and ESP8266 for wireless communication
 
 The file is structured into
+```
 	|
 	\_device_drivers
 	\_peripheral_drivers
@@ -16,7 +17,7 @@ The file is structured into
 	|-main.h
 	|-config.h
 
-
+```
 * device_drivers has all the device specific firmware like drivers for RTC, Screen, sensors, wifi communication etc.
 * peripheral_drivers has all the device agnostic communication protocols/tasks drivers like spi, i2c, serial and pwm sources.
 * utils has utility functions
