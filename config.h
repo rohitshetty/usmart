@@ -3,7 +3,7 @@
 
 #define F_CPU 11059200UL
 
-#define APPSIZE 3
+#define APPSIZE 2
 #define true 1
 #define false 0
 
