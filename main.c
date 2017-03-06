@@ -1,15 +1,5 @@
 #include "main.h"
 
-/*
-PD2  positive response
-PD3 negative response
-
-PD4 left
-PD5 right
-PD6 down
-PD7 right
-*/
-
 uint8_t brightness = 100;
 volatile char datetime[21];
 char hhmmss[9];
@@ -42,11 +32,68 @@ int main(){
 	while(1){
     	render_sentence_xy(hhmmss,15,2);
 		set_cursor_bank(15,3);
-		render_sentence_xy("`C Mysuru",27,3);
+		render_sentence_xy("Mysuru",27,3);
 
 		screen_invert();
+
+
+		if(PRESSED_INPUT_NEGATIVE){
+			goto_sleep(); // in utils
+		}
+
+		if (PRESSED_INPUT_POSITIVE) {
+			menu_state_machine();
+		}
 	}
 	return 0;
+}
+
+void menu_state_machine (void) {
+	//App state machine
+	_delay_ms(100);
+ 	uint8_t current_menu = 0;
+	uint8_t exit = false;
+	screen_clear();
+	screen_normal();
+	while(!exit){
+		render_sentence_xy(apps[current_menu].name,20,2);
+		screen_invert();
+
+		//When top is selected show previous app
+		if(PRESSED_INPUT_TOP){
+			if(current_menu < APPSIZE -1){
+				current_menu++;
+			}else{
+				current_menu = 0;
+			}
+			_delay_ms(100);
+			_delay_ms(50);
+			screen_clear();
+		}
+
+		// If negative, go back to home screen
+		if(PRESSED_INPUT_NEGATIVE){
+			_delay_ms(100);
+			exit = true;
+			screen_clear();
+		}
+
+		//If down, show next app
+		if(PRESSED_INPUT_DOWN){
+			if(current_menu > 0)
+				current_menu--;
+			else
+				current_menu = APPSIZE -1;
+			_delay_ms(100);
+			screen_clear();
+		}
+
+		//goto app
+		if(PRESSED_INPUT_LEFT | PRESSED_INPUT_RIGHT){
+			_delay_ms(100);
+			apps[current_menu].pointer();
+		}
+	}
 }
 
 
